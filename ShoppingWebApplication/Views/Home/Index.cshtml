@@ -9,9 +9,9 @@
             
             @foreach (var product in Model)
             {
-                <a asp-controller="Products" asp-action="Index" asp-route-id="@product.ProductId"
+                <a class="card" asp-controller="Products" asp-action="Index" asp-route-id="@product.ProductId"
                             asp-route-slug="@product.Slug">
-                    <div class="card">
+                    <div>
                         <img src="@product.ImagePath" class="image"/>
                         <div class="about">
                             <span class="seller">@product.Supplier</span>
