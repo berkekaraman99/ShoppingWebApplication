@@ -1,0 +1,96 @@
+html {
+    font-size: 14px;
+    margin-top: 100px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: black;
+    transition: .5s
+}
+
+.bg-image-old {
+    position: fixed;
+    top: 0;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    z-index: -2;
+    filter: blur(16px);
+    -webkit-filter: blur(16px);
+    height: 100%;
+    width: 100%;
+}
+.bg-image {
+    position: fixed;
+    top: 0;
+    z-index: -2;
+    background-image: url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    filter: blur(16px);
+    -webkit-filter: blur(16px);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+footer {
+    z-index: 2;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+
+.product-image {
+    border-radius: 1rem;
+    width: 400px;
+    float: left;
+    margin-right: 1rem;
+}
+
+.card {
+    background-color: rgb(255, 255, 255, 0.75);
+}
+
+.card-title {
+    font-weight: 800;
+}
+
+.card-text-price {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.input-group {
+    text-align: center;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 16px;
+    right: 32px
+}

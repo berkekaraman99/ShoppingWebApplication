@@ -1,0 +1,35 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-img">
+                <img src="@ViewBag.Image" class="product-image"/>
+            </div>
+            <div class="card-title display-2">
+                @ViewBag.ProductName
+            </div>
+            <p class="card-text display-4">
+                @ViewBag.Supplier
+            </p>
+            <p class="card-text">
+                @ViewBag.Description
+            </p>
+            <p class="card-text-price">
+                @ViewBag.Price TL
+            </p>
+            <div class="buttons">
+                <a asp-controller="Cart" asp-action="Add"
+                class="btn btn-primary">Add to Cart(WIP)</a>
+                <a asp-controller="Home" asp-action="Index"
+                class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ShoppingWebApplication.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+    <link rel="stylesheet" href="~/css/home.css" />
+}
+
+<div class="home">
+            
+            @foreach (var product in Model)
+            {
+                <a asp-controller="Products" asp-action="Index" asp-route-id="@product.ProductId"
+                            asp-route-slug="@product.Slug">
+                    <div class="card">
+                        <img src="@product.ImagePath" class="image"/>
+                        <div class="about">
+                            <span class="seller">@product.Supplier</span>
+                            <span class="description">
+            @{
+                if((@product.Description).Length < 24)
+                {                     
+                            <span>@product.Description</span>
+                        }
+                        else
+                        {    
+                            if((product.Description).Length >= 24)
+                            {
+                                for (var i = 0; i < 24; i++)
+                                {
+                                    @product.Description.ElementAt(i)
+                                }
+                            }
+                            <span>...</span>
+                }
+            }
+                </span>
+            </div>
+                        <br/>
+                        <div class="price">
+                            <h3>@product.Price TL</h3>
+                        </div>
+                    </div>
+                    </a>
+            }
+            
+</div>
