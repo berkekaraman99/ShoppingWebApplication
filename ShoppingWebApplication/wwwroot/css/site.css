@@ -21,7 +21,7 @@ body {
 }
 
 .nav-bg {
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(0, 165, 248, 0.75);
 }
 
 .bg-image-old {
@@ -39,13 +39,13 @@ body {
 .bg-image {
     position: fixed;
     top: 0;
+    width: 100%;
+    height: 100%;
     z-index: -2;
     background-image: url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100%;
-    width: 100%;
     filter: blur(16px);
     -webkit-filter: blur(16px);
 }

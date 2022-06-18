@@ -190,7 +190,7 @@ namespace ShoppingWebApplication.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction("Index","Admin");
+            return View("Success");
         }
 
         private bool ProductExists(int id)
