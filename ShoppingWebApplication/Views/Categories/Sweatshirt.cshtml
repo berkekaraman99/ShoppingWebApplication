@@ -1,54 +1,50 @@
-﻿@model List<Product>
+﻿@model IEnumerable<ShoppingWebApplication.Models.Product>
 
 @{
-    ViewBag.Title = "Category Products";
+    ViewData["Title"] = "Products";
+    <link rel="stylesheet" href="~/css/home.css" />
 }
 
-<h2>@ViewBag.Title</h2>
-
-<div>
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Image</th>
-                <th scope="col">ID</th>
-                <th scope="col">Supplier</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Colour</th>
-                <th scope="col">Category Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Process</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="home">
+            
             @foreach (var product in Model)
             {
-                if(product.CategoryId == 11)
-                {
-                    <tr>
-                    <td style="text-align: center"><img src="@product.ImagePath" height="150" /></td>
-                    <td>@product.ProductId</td>
-                    <td>@product.Supplier</td>
-                    <td>@product.ProductName</td>
-                    <td>@product.Price TL</td>
-                    <td>@product.Colour.ColourName</td>
-                    <td>@product.Category.CategoryName</td>
-                    <td>@product.Description</td>
-                    <td>
-                        
-                        <a asp-controller="Cart" asp-action="Add" class="btn btn-success">Add to Cart</a>
-                       
-                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.ProductId"
-                            asp-route-slug="@product.Slug" class="btn btn-primary">Edit</a>
-                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.ProductId"
-                            asp-route-slug="@product.Slug" class="btn btn-warning">Delete</a>
-                    </td>
-                </tr>
-                }
+        if(product.CategoryId == 11)
+        {
+            <a class="card" asp-controller="Products" asp-action="Index" asp-route-id="@product.ProductId"
+                            asp-route-slug="@product.Slug">
+                    <div style="height: 600px">
+                        <img src="@product.ImagePath" class="image"/>
+                        <div class="about">
+                            <div class="seller">@product.Supplier</div>
+                            <div class="description">
+                        @{
+                            if((@product.Description).Length < 24)
+                            {                     
+                                        <span>@product.Description</span>
+                                    }
+                                    else
+                                    {    
+                                        if((product.Description).Length >= 24)
+                                        {
+                                            for (var i = 0; i < 24; i++)
+                                            {
+                                                @product.Description.ElementAt(i)
+                                            }
+                                        }
+                                        <span>...</span>
+                            }
+                        }
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="price">
+                            <h3>@product.Price TL</h3>
+                        </div>
+                    </div>
+                    </a>
+        }
                 
-            }
-        </tbody>
-    </table>
-    <a asp-controller="Product" asp-action="Add" class="btn btn-primary mb-2 mt-2">Add New Product</a>
+       }
+            
 </div>

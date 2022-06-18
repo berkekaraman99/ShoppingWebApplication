@@ -1,11 +1,4 @@
-﻿.home {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    column-count: 6;
-}
-
-.card {
+﻿.card {
     display: flex;
     width: 250px;
     overflow: hidden;
@@ -31,26 +24,10 @@
         width: 100%;
         object-fit: cover;
         border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+        margin-bottom: 2rem;
     }
 
         .card img:hover {
             transform: scale(1.05);
+            box-shadow: 0px 0px 3px gray;
         }
-
-.home a {
-    text-decoration: none;
-    color: black;
-}
-
-.about {
-    margin: 0 16px 0 16px;
-}
-
-.seller {
-    font-size: 22px;
-    font-weight: 800;
-}
-
-.price {
-    margin: 0 0 8px 16px;
-}

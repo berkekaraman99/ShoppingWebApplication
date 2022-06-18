@@ -20,6 +20,10 @@ body {
     transition: .5s
 }
 
+.nav-bg {
+    background-color: rgba(255,255,255,0.9);
+}
+
 .bg-image-old {
     position: fixed;
     top: 0;
@@ -44,11 +48,6 @@ body {
     width: 100%;
     filter: blur(16px);
     -webkit-filter: blur(16px);
-}
-
-.bg-blur {
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1;
 }
 
 @keyframes gradient {
@@ -98,4 +97,32 @@ footer {
     position: absolute;
     bottom: 16px;
     right: 32px
+}
+
+.home a {
+    text-decoration: none;
+    color: black;
+}
+
+.about {
+    margin: 0 16px 0 16px;
+}
+
+.seller {
+    margin-top: 8px;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.price {
+    position: absolute;
+    left: 17px;
+    bottom: 8px;
+}
+
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-count: 6;
 }

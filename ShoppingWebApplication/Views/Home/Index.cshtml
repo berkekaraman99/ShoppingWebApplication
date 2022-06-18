@@ -11,11 +11,11 @@
             {
                 <a class="card" asp-controller="Products" asp-action="Index" asp-route-id="@product.ProductId"
                             asp-route-slug="@product.Slug">
-                    <div>
+                    <div style="height: 600px">
                         <img src="@product.ImagePath" class="image"/>
                         <div class="about">
-                            <span class="seller">@product.Supplier</span>
-                            <span class="description">
+                            <div class="seller">@product.Supplier</div>
+                            <div class="description">
             @{
                 if((@product.Description).Length < 24)
                 {                     
@@ -33,7 +33,7 @@
                             <span>...</span>
                 }
             }
-                </span>
+                </div>
             </div>
                         <br/>
                         <div class="price">

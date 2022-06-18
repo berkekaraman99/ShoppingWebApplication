@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -61,7 +62,7 @@ namespace ShoppingWebApplication.Controllers
         {
             return _context.Product != null ?
                         View("ShowSearchForm") :
-                        Problem("Entity set 'ApplicationDbContext.Joke'  is null.");
+                        Problem("Entity set 'ApplicationDbContext.Product'  is null.");
         }
 
         // GET: Products/ShowSearchResults
@@ -71,16 +72,16 @@ namespace ShoppingWebApplication.Controllers
         }
 
         // GET: Products/Create
+        [Authorize]
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "CategoryId", "CategoryId");
-            ViewData["ColourId"] = new SelectList(_context.Set<Colour>(), "ColourId", "ColourId");
+            ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Colours = _context.Colour.OrderBy(g => g.ColourName).ToList();
             return View();
         }
 
         // POST: Products/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,Price,Description,ColourId,CategoryId,Supplier,ImagePath")] Product product)
@@ -91,12 +92,13 @@ namespace ShoppingWebApplication.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "CategoryId", "CategoryId", product.CategoryId);
-            ViewData["ColourId"] = new SelectList(_context.Set<Colour>(), "ColourId", "ColourId", product.ColourId);
+            ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Colours = _context.Colour.OrderBy(g => g.ColourName).ToList();
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: Products/Edit/
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Product == null)
@@ -109,14 +111,13 @@ namespace ShoppingWebApplication.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "CategoryId", "CategoryId", product.CategoryId);
-            ViewData["ColourId"] = new SelectList(_context.Set<Colour>(), "ColourId", "ColourId", product.ColourId);
+            ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Colours = _context.Colour.OrderBy(g => g.ColourName).ToList();
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Products/Edit/
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,Price,Description,ColourId,CategoryId,Supplier,ImagePath")] Product product)
@@ -146,12 +147,13 @@ namespace ShoppingWebApplication.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Set<Category>(), "CategoryId", "CategoryId", product.CategoryId);
-            ViewData["ColourId"] = new SelectList(_context.Set<Colour>(), "ColourId", "ColourId", product.ColourId);
+            ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
+            ViewBag.Colours = _context.Colour.OrderBy(g => g.ColourName).ToList();
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: Products/Delete/
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Product == null)
@@ -171,7 +173,8 @@ namespace ShoppingWebApplication.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: Products/Delete/
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -187,7 +190,7 @@ namespace ShoppingWebApplication.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index","Admin");
         }
 
         private bool ProductExists(int id)

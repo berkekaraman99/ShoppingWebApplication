@@ -7,8 +7,8 @@
 
 <h2>Product List</h2>
 <div>
-    <a asp-controller="Product" asp-action="Add" class="btn btn-primary mb-2 mt-2">Add New Product</a>
-    <table class="table table-bordered table-hover">
+    <a asp-controller="Products" asp-action="Create" class="btn btn-primary mb-2 mt-2">Add New Product</a>
+    <table class="table table-bordered table-hover table-dark table-striped">
         <thead>
             <tr>
                 <th scope="col">Image</th>
@@ -36,14 +36,10 @@
                     <td>@product.Description</td>
                     <td>
                         
-                        <a asp-controller="Cart" asp-action="Add" asp-route-id="@product.ProductId" class="btn btn-success">
-                            Add to Cart
-                        </a>
-                       
-                        <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.ProductId"
+                        <a asp-controller="Products" asp-action="Edit" asp-route-id="@product.ProductId"
                             asp-route-slug="@product.Slug" class="btn btn-primary">Edit</a>
-                        <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.ProductId"
-                            asp-route-slug="@product.Slug" class="btn btn-warning">Delete</a>
+                        <a asp-controller="Products" asp-action="Delete" asp-route-id="@product.ProductId"
+                            asp-route-slug="@product.Slug" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             }
