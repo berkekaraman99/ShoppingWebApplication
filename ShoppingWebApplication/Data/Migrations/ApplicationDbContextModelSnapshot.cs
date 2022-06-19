@@ -237,7 +237,7 @@ namespace ShoppingWebApplication.Data.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
 
                     b.HasData(
                         new
@@ -315,7 +315,7 @@ namespace ShoppingWebApplication.Data.Migrations
 
                     b.HasKey("ColourId");
 
-                    b.ToTable("Colour");
+                    b.ToTable("Colour", (string)null);
 
                     b.HasData(
                         new
@@ -444,7 +444,7 @@ namespace ShoppingWebApplication.Data.Migrations
 
                     b.HasIndex("ColourId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
 
                     b.HasData(
                         new

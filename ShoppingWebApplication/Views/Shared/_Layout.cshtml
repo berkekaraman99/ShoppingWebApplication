@@ -12,7 +12,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark nav-bg box-shadow mb-3 fixed-top"
-        style="padding-left: 2rem; padding-right: 2rem"
+        style="padding-left: 2rem; padding-right: 2rem" id="nav"
         >
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ShoppingWebApplication</a>
@@ -29,7 +29,7 @@
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categories
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu text-shd" aria-labelledby="navbarDropdown">
                                 <li><a asp-controller="Categories" asp-action="TShirt" asp-area="" class="dropdown-item" >T-Shirt</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a asp-controller="Categories" asp-action="Short" asp-area="" class="dropdown-item" >Short</a></li>

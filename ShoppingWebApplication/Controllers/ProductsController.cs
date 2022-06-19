@@ -34,30 +34,11 @@ namespace ShoppingWebApplication.Controllers
             ViewBag.Image = product.ImagePath;
             ViewBag.Supplier = product.Supplier;
             return View(product);
-            //return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Product == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Product
-                .Include(p => p.Category)
-                .Include(p => p.Colour)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
 
         // GET: Products/ShowSearchForm
+        [HttpGet]
         public async Task<IActionResult> ShowSearchForm()
         {
             return _context.Product != null ?
@@ -66,13 +47,23 @@ namespace ShoppingWebApplication.Controllers
         }
 
         // GET: Products/ShowSearchResults
+        [HttpGet]
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Product.Where(p => p.ProductName.Contains(SearchPhrase)).ToListAsync());
+            var products = from m in _context.Product
+                         select m;
+
+            if (!String.IsNullOrEmpty(SearchPhrase))
+            {
+                products = products.Where(s => s.ProductName!.Contains(SearchPhrase));
+            }
+
+            return View(await products.ToListAsync());
         }
 
         // GET: Products/Create
         [Authorize]
+        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
@@ -99,6 +90,7 @@ namespace ShoppingWebApplication.Controllers
 
         // GET: Products/Edit/
         [Authorize]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Product == null)
@@ -154,6 +146,7 @@ namespace ShoppingWebApplication.Controllers
 
         // GET: Products/Delete/
         [Authorize]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Product == null)

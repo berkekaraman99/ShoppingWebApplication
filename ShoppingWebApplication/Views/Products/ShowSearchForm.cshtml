@@ -1,24 +1,20 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
-<h4>Search for a Product</h4>
+<div class="card" style="padding: 1rem 0 1rem 1rem">
+<h1>Search for a Product</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Products" asp-action="ShowSearchResults">
+        <form asp-controller="Products" asp-action="ShowSearchResults" method="get">
             <div class="form-group">
                 <label for="SearchPhrase" class="control-label"></label>
-                <input name="SearchPhrase" class="form-control" />
+                <input name="SearchPhrase" class="form-control" placeholder="Search product name..." />
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 1rem; display: inline-block">
                 <input type="submit" value="Search" class="btn btn-primary" />
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to List</a>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-controller="Home" asp-action="Index">Back to List</a>
 </div>
