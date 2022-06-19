@@ -2,6 +2,13 @@
 
 @{
     ViewBag.Title = "Product Details";
+    List<String> bigCities = new List<String>()
+                    {   "S",
+                        "M",
+                        "L",
+                        "XL",
+                        "XXL"                  
+                    };
 }
 
 <h1>@ViewBag.Title</h1>
@@ -24,6 +31,18 @@
             <p class="card-text-price">
                 @ViewBag.Price TL
             </p>
+            <div>
+                <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off">
+                <label class="btn btn-outline-primary me-2" for="option1">@bigCities[0]</label>
+                <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+                <label class="btn btn-outline-primary me-2" for="option2">@bigCities[1]</label>
+                <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
+                <label class="btn btn-outline-primary me-2" for="option3">@bigCities[2]</label>
+                <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off">
+                <label class="btn btn-outline-primary me-2" for="option4">@bigCities[3]</label>
+                <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off">
+                <label class="btn btn-outline-primary me-2" for="option5">@bigCities[4]</label>
+            </div>
             <div class="buttons">
                 <a asp-controller="Cart" asp-action="Add"
                 class="btn btn-primary disabled">Add to Cart</a>

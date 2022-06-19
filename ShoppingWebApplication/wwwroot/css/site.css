@@ -111,3 +111,7 @@ footer {
     text-shadow: 1px 1px 2px lightgray;
     transition: linear .4s
 }
+
+.myBtn {
+    background: linear-gradient(to bottom left,transparent calc(50% - 1px),#e6e6e6 calc(50% - 1px),#e6e6e6 50%,transparent 50%);
+}

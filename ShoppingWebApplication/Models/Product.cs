@@ -23,8 +23,9 @@ namespace ShoppingWebApplication.Models
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
-        [Required(ErrorMessage = "Please enter a brand")]
+        [Required(ErrorMessage = "Please enter a supplier")]
         public string? Supplier { get; set; }
+        [Required(ErrorMessage = "Please enter a Image")]
         public string? ImagePath { get; set; }
 
         public string Slug =>

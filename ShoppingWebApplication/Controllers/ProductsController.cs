@@ -50,8 +50,8 @@ namespace ShoppingWebApplication.Controllers
         [HttpGet]
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            var products = from m in _context.Product
-                         select m;
+            var products = from p in _context.Product
+                         select p;
 
             if (!String.IsNullOrEmpty(SearchPhrase))
             {
