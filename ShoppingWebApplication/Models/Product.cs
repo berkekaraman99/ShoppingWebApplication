@@ -10,7 +10,7 @@ namespace ShoppingWebApplication.Models
         public string? ProductName { get; set; }
 
         [Required(ErrorMessage = "Please enter a price for product.")]
-        public double? Price { get; set; }
+        public string? Price { get; set; }
 
         [Required(ErrorMessage = "Please enter a description.")]
         public string? Description { get; set; }

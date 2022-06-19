@@ -237,7 +237,7 @@ namespace ShoppingWebApplication.Data.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
 
                     b.HasData(
                         new
@@ -315,7 +315,7 @@ namespace ShoppingWebApplication.Data.Migrations
 
                     b.HasKey("ColourId");
 
-                    b.ToTable("Colour", (string)null);
+                    b.ToTable("Colour");
 
                     b.HasData(
                         new
@@ -424,11 +424,12 @@ namespace ShoppingWebApplication.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImagePath")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Price")
+                    b.Property<string>("Price")
                         .IsRequired()
-                        .HasColumnType("float");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
@@ -444,7 +445,7 @@ namespace ShoppingWebApplication.Data.Migrations
 
                     b.HasIndex("ColourId");
 
-                    b.ToTable("Product", (string)null);
+                    b.ToTable("Product");
 
                     b.HasData(
                         new
@@ -454,7 +455,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 6,
                             Description = "Slim Fit Bisiklet Yaka Tişört",
                             ImagePath = "https://cdn.dsmcdn.com/ty328/product/media/images/20220209/18/47636736/357341652/3/3_org_zoom.jpg",
-                            Price = 99.900000000000006,
+                            Price = "99.99",
                             ProductName = "Kısa Kollu Tişört",
                             Supplier = "Defacto"
                         },
@@ -465,7 +466,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 12,
                             Description = "Regular Fit Şort",
                             ImagePath = "https://cdn.dsmcdn.com/ty320/product/media/images/20220203/11/42832809/305563350/2/2_org_zoom.jpg",
-                            Price = 105.98999999999999,
+                            Price = "105.99",
                             ProductName = "Şort",
                             Supplier = "TRENDYOL MAN"
                         },
@@ -476,7 +477,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 2,
                             Description = "Ekoseli Oduncu Gömliği",
                             ImagePath = "http://www.madmext.com/Uploads/UrunResimleri/buyuk/madmext-kirmizi-oduncu-gomlek-4950-0df7f-.jpg",
-                            Price = 176.99000000000001,
+                            Price = "176.99",
                             ProductName = "Oduncu Gömleği",
                             Supplier = "Madmext"
                         },
@@ -487,7 +488,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 6,
                             Description = "Comfort Slim Fit Jean Pantolon",
                             ImagePath = "https://cdn.dsmcdn.com/mnresize/1200/1800/ty314/product/media/images/20220131/11/39570345/129997989/1/1_org_zoom.jpg",
-                            Price = 125.98999999999999,
+                            Price = "125.99",
                             ProductName = "Kot Pantolon",
                             Supplier = "Avva"
                         },
@@ -498,7 +499,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 6,
                             Description = "Basic Sweatshirt",
                             ImagePath = "https://cdn.dsmcdn.com/ty95/product/media/images/20210403/20/fb2e760a/12547721/1/1_org_zoom.jpg",
-                            Price = 119.98999999999999,
+                            Price = "119.99",
                             ProductName = "Sweatshirt",
                             Supplier = "New Balance"
                         },
@@ -509,7 +510,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 6,
                             Description = "Fermuarlı Süet Ceket",
                             ImagePath = "https://cdn.dsmcdn.com/ty252/product/media/images/20211125/11/111687527/63549559/1/1_org_zoom.jpg",
-                            Price = 175.99000000000001,
+                            Price = "175.99",
                             ProductName = "Ceket",
                             Supplier = "Densmood"
                         },
@@ -520,7 +521,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 15,
                             Description = "Lacivert-Bordo Çizgili Standart Fit Bisiklet Yaka Kazak",
                             ImagePath = "https://cdn.dsmcdn.com/ty259/product/media/images/20211129/14/1161911/325212774/1/1_org_zoom.jpg",
-                            Price = 78.989999999999995,
+                            Price = "78.99",
                             ProductName = "Kazak",
                             Supplier = "Altınyıldız Classics"
                         },
@@ -531,7 +532,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 15,
                             Description = "Mecan Pass Interchange Mont",
                             ImagePath = "https://cdn.dsmcdn.com/ty65/product/media/images/20210205/11/60148635/137692619/1/1_org_zoom.jpg",
-                            Price = 4120.9899999999998,
+                            Price = "4120.99",
                             ProductName = "Mont",
                             Supplier = "Columbia"
                         },
@@ -542,7 +543,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 1,
                             Description = "Martin Vintage Mavi Jean Pantolon",
                             ImagePath = "https://cdn.dsmcdn.com/ty452/product/media/images/20220610/19/123995093/266410610/1/1_org_zoom.jpg",
-                            Price = 295.99000000000001,
+                            Price = "295.99",
                             ProductName = "Pantolon",
                             Supplier = "Mavi"
                         },
@@ -553,7 +554,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 12,
                             Description = "Bej Slim Fit Kırlangıc Yaka Kruvaze Takım Elbise",
                             ImagePath = "https://cdn.dsmcdn.com/ty396/product/media/images/20220413/19/90390826/447432467/1/1_org_zoom.jpg",
-                            Price = 1231.99,
+                            Price = "1231.99",
                             ProductName = "Takım Elbise",
                             Supplier = "Mcr"
                         },
@@ -564,7 +565,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 6,
                             Description = "Bej Slim Fit Kırlangıc Yaka Kruvaze Takım Elbise",
                             ImagePath = "https://cdn.dsmcdn.com/ty326/product/media/images/20220206/7/45556933/146921262/1/1_org_zoom.jpg",
-                            Price = 250.99000000000001,
+                            Price = "250.99",
                             ProductName = "Yelek",
                             Supplier = "Danger"
                         },
@@ -575,7 +576,7 @@ namespace ShoppingWebApplication.Data.Migrations
                             ColourId = 11,
                             Description = "Regular Fit Lastik Paçalı Eşofman Altı",
                             ImagePath = "https://cdn.dsmcdn.com/ty433/product/media/images/20220518/16/113231020/61562287/2/2_org_zoom.jpg",
-                            Price = 89.989999999999995,
+                            Price = "89.99",
                             ProductName = "Eşofman",
                             Supplier = "Trendyol Man"
                         });

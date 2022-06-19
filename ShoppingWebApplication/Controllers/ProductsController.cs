@@ -81,11 +81,11 @@ namespace ShoppingWebApplication.Controllers
             {
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("Success");
             }
             ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
             ViewBag.Colours = _context.Colour.OrderBy(g => g.ColourName).ToList();
-            return View(product);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: Products/Edit/
@@ -137,7 +137,7 @@ namespace ShoppingWebApplication.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
             ViewBag.Categories = _context.Category.OrderBy(g => g.CategoryName).ToList();
             ViewBag.Colours = _context.Colour.OrderBy(g => g.ColourName).ToList();
@@ -183,7 +183,7 @@ namespace ShoppingWebApplication.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return View("Success");
+            return View("DeleteSuccess");
         }
 
         private bool ProductExists(int id)

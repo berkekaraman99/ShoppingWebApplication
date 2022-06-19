@@ -55,7 +55,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 1,
                     ProductName = "Kısa Kollu Tişört",
-                    Price = 99.9,
+                    Price = "99.99",
                     ColourId = 6,
                     Description = "Slim Fit Bisiklet Yaka Tişört",
                     CategoryId = 1,
@@ -66,7 +66,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 2,
                     ProductName = "Şort",
-                    Price = 105.99,
+                    Price = "105.99",
                     ColourId = 12,
                     Description = "Regular Fit Şort",
                     Supplier = "TRENDYOL MAN",
@@ -77,7 +77,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 3,
                     ProductName = "Oduncu Gömleği",
-                    Price = 176.99,
+                    Price = "176.99",
                     ColourId = 2,
                     Description = "Ekoseli Oduncu Gömliği",
                     Supplier= "Madmext",
@@ -88,7 +88,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 4,
                     ProductName = "Kot Pantolon",
-                    Price = 125.99,
+                    Price = "125.99",
                     ColourId = 6,
                     Description = "Comfort Slim Fit Jean Pantolon",
                     Supplier= "Avva",
@@ -99,7 +99,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 5,
                     ProductName = "Sweatshirt",
-                    Price = 119.99,
+                    Price = "119.99",
                     ColourId = 6,
                     Description = "Basic Sweatshirt",
                     Supplier= "New Balance",
@@ -110,7 +110,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 6,
                     ProductName = "Ceket",
-                    Price = 175.99,
+                    Price = "175.99",
                     ColourId = 6,
                     Description = "Fermuarlı Süet Ceket",
                     Supplier= "Densmood",
@@ -121,7 +121,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 7,
                     ProductName = "Kazak",
-                    Price = 78.99,
+                    Price = "78.99",
                     ColourId = 15,
                     Description = "Lacivert-Bordo Çizgili Standart Fit Bisiklet Yaka Kazak",
                     Supplier= "Altınyıldız Classics",
@@ -132,7 +132,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 8,
                     ProductName = "Mont",
-                    Price = 4120.99,
+                    Price = "4120.99",
                     ColourId = 15,
                     Description = "Mecan Pass Interchange Mont",
                     Supplier= "Columbia",
@@ -143,7 +143,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 9,
                     ProductName = "Pantolon",
-                    Price = 295.99,
+                    Price = "295.99",
                     ColourId = 1,
                     Description = "Martin Vintage Mavi Jean Pantolon",
                     Supplier= "Mavi",
@@ -154,7 +154,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 10,
                     ProductName = "Takım Elbise",
-                    Price = 1231.99,
+                    Price = "1231.99",
                     ColourId = 12,
                     Description = "Bej Slim Fit Kırlangıc Yaka Kruvaze Takım Elbise",
                     Supplier= "Mcr",
@@ -165,7 +165,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 11,
                     ProductName = "Yelek",
-                    Price = 250.99,
+                    Price = "250.99",
                     ColourId = 6,
                     Description = "Bej Slim Fit Kırlangıc Yaka Kruvaze Takım Elbise",
                     Supplier= "Danger",
@@ -176,7 +176,7 @@ namespace ShoppingWebApplication.Data
                 {
                     ProductId = 12,
                     ProductName = "Eşofman",
-                    Price = 89.99,
+                    Price = "89.99",
                     ColourId = 11,
                     Description = "Regular Fit Lastik Paçalı Eşofman Altı",
                     Supplier= "Trendyol Man",

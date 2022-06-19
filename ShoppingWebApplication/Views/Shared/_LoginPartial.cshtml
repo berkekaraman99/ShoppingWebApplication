@@ -5,10 +5,13 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
+    <li class="nav-item text-shd">
+        <a class="nav-link text-light" asp-controller="Admin" asp-action="Index">ProductManager</a>
+    </li>
+    <li class="nav-item text-shd">
         <a  class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Profile</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item text-shd">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
             <button  type="submit" class="nav-link btn btn-link text-light">Logout</button>
         </form>
@@ -16,10 +19,10 @@
 }
 else
 {
-    <li class="nav-item">
+    <li class="nav-item text-shd">
         <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item text-shd">
         <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 }
